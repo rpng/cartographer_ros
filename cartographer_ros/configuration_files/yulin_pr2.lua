@@ -19,10 +19,10 @@ options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "base_footprint",
-  published_frame = "base_footprint",
+  tracking_frame = "scan",
+  published_frame = "scan",
   odom_frame = "odom",
-  provide_odom_frame = true,
+  provide_odom_frame = false,
   publish_frame_projected_to_2d = false,
   use_odometry = true,
   use_nav_sat = false,
@@ -45,10 +45,22 @@ options = {
 MAP_BUILDER.use_trajectory_builder_2d = true
 
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
+TRAJECTORY_BUILDER_2D.submaps.num_range_data = 120
+--TRAJECTORY_BUILDER_2D.submaps.resolution = 0.05 -- 0.05
 TRAJECTORY_BUILDER_2D.use_imu_data = false
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.15
-TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(35.)
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.15 -- 0.15
+TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.angular_search_window = math.rad(35.) -- 35.
+
 
 POSE_GRAPH.optimization_problem.huber_scale = 1e2
+
+-- adjust the parameters
+POSE_GRAPH.constraint_builder.sampling_ratio = 0.3 -- 0.3
+POSE_GRAPH.global_sampling_ratio = 0.003 -- 0.003
+POSE_GRAPH.constraint_builder.min_score = 0.55 -- 0.55
+POSE_GRAPH.global_constraint_search_after_n_seconds = 10 -- 10
+--POSE_GRAPH.fast_correlative_scan_matcher.linear_search_window = 7. -- 7.
+
+
 
 return options

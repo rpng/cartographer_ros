@@ -23,6 +23,7 @@
 #include "cartographer_ros/msg_conversion.h"
 #include "cartographer_ros_msgs/StatusCode.h"
 #include "cartographer_ros_msgs/StatusResponse.h"
+#include <iostream>
 
 namespace cartographer_ros {
 namespace {
@@ -323,7 +324,8 @@ std::pair<visualization_msgs::MarkerArray,nav_msgs::Path>
       pose.pose.position.y = node_point.y;
       pose.pose.position.z = node_point.z;
       path.push_back(pose);
-
+      printf("HERE\n\n");
+        
       if (node_id_data.id.node_index ==
           last_inter_trajectory_constrained_node) {
         PushAndResetLineMarker(&marker, &trajectory_node_list.markers);

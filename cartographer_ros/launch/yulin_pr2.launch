@@ -39,7 +39,7 @@
   </node>
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
-      args="-d $(find cartographer_ros)/configuration_files/demo_2d.rviz" />
+      args="-d $(find cartographer_ros)/configuration_files/nate.rviz" />
   <node name="playbag" pkg="rosbag" type="play"
       args="--clock $(arg bag_filename)">
     <remap from="tf" to="tf_in" />

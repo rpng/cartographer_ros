@@ -264,13 +264,13 @@ void Node::PublishTrajectoryStates(const ::ros::WallTimerEvent& timer_event) {
 
 void Node::PublishTrajectoryNodeList(
     const ::ros::WallTimerEvent& unused_timer_event) {
-  if (trajectory_node_list_publisher_.getNumSubscribers() > 0) {
+  //if (trajectory_node_list_publisher_.getNumSubscribers() > 0) {
     carto::common::MutexLocker lock(&mutex_);
     std::pair<visualization_msgs::MarkerArray,nav_msgs::Path> msgs
         = map_builder_bridge_.GetTrajectoryNodeList();
     trajectory_node_list_publisher_.publish(msgs.first);
     trajectory_path_publisher_.publish(msgs.second);
-  }
+  //}
 }
 
 void Node::PublishLandmarkPosesList(

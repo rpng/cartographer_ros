@@ -102,8 +102,8 @@ class DrawableSubmap : public QObject {
   Ogre::SceneNode* const submap_id_text_node_;
   std::vector<std::unique_ptr<OgreSlice>> ogre_slices_;
   ::cartographer::transform::Rigid3d pose_ GUARDED_BY(mutex_);
-  ::rviz::Axes pose_axes_;
-  ::rviz::MovableText submap_id_text_;
+  //::rviz::Axes pose_axes_;
+  //::rviz::MovableText submap_id_text_;
   std::chrono::milliseconds last_query_timestamp_ GUARDED_BY(mutex_);
   bool query_in_progress_ GUARDED_BY(mutex_) = false;
   int metadata_version_ GUARDED_BY(mutex_) = -1;
