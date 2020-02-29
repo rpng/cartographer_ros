@@ -1,4 +1,4 @@
-# 2018 The Cartographer Authors
+# Copyright 2016 The Cartographer Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# A histogram bucket counts values x for which:
-#   previous_boundary < x <= bucket_boundary
-# holds.
-float64 bucket_boundary
-float64 count
+string laser_scan_topic
+string multi_echo_laser_scan_topic
+string point_cloud2_topic
+string imu_topic
+string odometry_topic
+string nav_sat_fix_topic
+string landmark_topic
